@@ -27,8 +27,19 @@ I want to be able to deposit money.
 ```
 
 ### Account Statements ###
-```
 
+```
+As a user 
+So that I can track my account activities
+I want to be able to see an account statement
+
+As a user 
+So that I can see when I made a transaction
+I want to be able see the date of the transaction
+
+As a user 
+So that I can see how much I took out 
+I want to be able to see the balance on the statement 
 ```
 
 Irb - cd into lib
