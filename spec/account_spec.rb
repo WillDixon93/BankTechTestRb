@@ -1,5 +1,6 @@
-require './lib/account'
-
+require './lib/account.rb'
+require './lib/transaction.rb'
+ 
 describe Account do
   let(:account) { Account.new }
 
@@ -12,22 +13,31 @@ describe Account do
   end
 
   it 'returns a balance when called' do
-    account.deposit(150)
+    account.transaction('deposit', 150)
     expect(account.balance).to eq(150)
   end
 
   describe '#deposit' do 
     it 'returns an updated balance after calling deposit' do
-      account.deposit(20)
+      account.transaction('deposit', 20)
       expect(account.balance).to eq(20)
     end
   end
 
   describe '#withdraw' do
     it 'returns an updated balance after calling withdraw' do
-      account.deposit(40)
-      account.withdraw(20)
-      expect(account.balance).to eq(20)
+      account.transaction('deposit', 40)
+      account.transaction('withdraw', 10)
+      expect(account.balance).to eq(30)
+    end
+
+    it 'creates a new transaction object' do 
+      account.transaction('withdraw', 10)
+      expect(account.transaction_history[-1]).to be_an_instance_of(Transaction)
+    end
+
+    it 'should be able to accept a date as an argument' do
+      expect { account.transaction('withdraw', 10.50, "01/01/2021") }.not_to raise_error
     end
   end
 end
