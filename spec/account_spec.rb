@@ -7,6 +7,10 @@ describe Account do
     expect(account.balance).to eq(0)
   end
 
+  it 'should show a float balance even if whole number given' do
+    expect(account.balance).to be_a(Float)
+  end
+
   it 'returns a balance when called' do
     account.deposit(150)
     expect(account.balance).to eq(150)

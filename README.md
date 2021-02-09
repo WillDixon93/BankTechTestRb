@@ -25,3 +25,15 @@ As a user
 So that I can save money
 I want to be able to deposit money. 
 ```
+
+### Account Statements ###
+```
+
+```
+
+Irb - cd into lib
+require './account.rb'
+account = Account.new
+account.balance
+account.deposit
+account.withdraw
