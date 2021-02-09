@@ -7,6 +7,11 @@ describe Account do
     expect(account.balance).to eq(0)
   end
 
+  it 'returns a balance when called' do
+    account.deposit(150)
+    expect(account.balance).to eq(150)
+  end
+
   describe '#deposit' do 
     it 'returns an updated balance after calling deposit' do
       account.deposit(20)
