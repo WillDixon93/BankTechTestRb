@@ -2,7 +2,7 @@
 
 Requirements
 
-You should be able to interact with your code via a REPL (JS Console)
+You should be able to interact with your code via a REPL (irb)
 
 Deposits, withdrawal
 Account statement (date, amount, balance) printing
