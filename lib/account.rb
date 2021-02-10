@@ -15,16 +15,9 @@ class Account
     balance = reformat_to_2dp_string(@balance)
     amount = reformat_to_2dp_string(amount)
     record_transaction(type, balance, amount, date)
-  end
 
-  # def deposit(money)
-  #   @balance += money
-  # end
-
-  # def withdraw(money)
-  #   @balance -= money
-  # end
-
+  end 
+  
   private
 
   def record_transaction(type, balance, amount, date)
