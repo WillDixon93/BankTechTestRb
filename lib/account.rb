@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'date'
 
 class Account
-
   attr_reader :balance, :transaction_history
 
   def initialize(balance = 0.00)
@@ -15,9 +16,8 @@ class Account
     balance = reformat_to_2dp_string(@balance)
     amount = reformat_to_2dp_string(amount)
     record_transaction(type, balance, amount, date)
+  end
 
-  end 
-  
   private
 
   def record_transaction(type, balance, amount, date)
@@ -26,17 +26,18 @@ class Account
   end
 
   def reformat_to_2dp_string(data)
-    "#{'%.2f' % data}"
+    ('%.2f' % data).to_s
   end
 
   def reformat_date(date)
-    Date.parse(date).strftime("%d/%m/%Y")
+    Date.parse(date).strftime('%d/%m/%Y')
   end
 
   def update_balance(amount, type)
-    if type == 'withdraw'
+    case type
+    when 'withdraw'
       @balance -= amount
-    elsif type == 'deposit'
+    when 'deposit'
       @balance += amount
     end
   end
